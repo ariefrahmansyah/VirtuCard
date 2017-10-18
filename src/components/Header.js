@@ -1,6 +1,8 @@
 import React from 'react';
-import {Text,View} from 'react-native';
-import { Col, Row, Grid } from "react-native-easy-grid";
+import {Text,View,TouchableOpacity} from 'react-native';
+import {Col,Row,Grid} from "react-native-easy-grid";
+
+// import {Add} from './Add';
 
 const Header = (props) =>{
     const {textStyle,textAlignRight,viewStyle} = styles;
@@ -8,14 +10,14 @@ const Header = (props) =>{
     return (
         <View style = {viewStyle}>
             <Grid>
-                <Col>
-                    <Text style = {textStyle}>Add</Text>
-                </Col>
+                <Col></Col>
                 <Col>
                     <Text style = {textStyle}>{props.headerText}</Text>
                 </Col>
                 <Col>
-                    <Text style = {textAlignRight}>My QR</Text>
+                    <Text style = {textAlignRight}>
+                        Add
+                    </Text>
                 </Col>
             </Grid>
         </View>
