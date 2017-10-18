@@ -2,7 +2,7 @@
   "expo": {
     "sdkVersion": "21.0.0",
     "androidStatusBar": {
-      "barStyle": "light-content"
+      "barStyle": "dark-content"
     }
   }
 }

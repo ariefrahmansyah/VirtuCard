@@ -10,7 +10,7 @@ class CardList extends Component{
     componentWillMount(){
         var url = "https://us-central1-mmpg-otp-27c9d.cloudfunctions.net/scanQr"
         axios.post(url, {phone: '628117160077'})
-            .then(response =>this.setState({cards:response.data.result.friends}));
+            .then(response => this.setState({cards:response.data.result.friends}));
     }
 
     renderCards()

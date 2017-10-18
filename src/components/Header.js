@@ -1,12 +1,23 @@
 import React from 'react';
 import {Text,View} from 'react-native';
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 const Header = (props) =>{
-    const {textStyle,viewStyle} = styles;
+    const {textStyle,textAlignRight,viewStyle} = styles;
 
     return (
         <View style = {viewStyle}>
-            <Text style = {textStyle}>{props.headerText}</Text>
+            <Grid>
+                <Col>
+                    <Text style = {textStyle}>Add</Text>
+                </Col>
+                <Col>
+                    <Text style = {textStyle}>{props.headerText}</Text>
+                </Col>
+                <Col>
+                    <Text style = {textAlignRight}>My QR</Text>
+                </Col>
+            </Grid>
         </View>
     );
 }
@@ -27,6 +38,11 @@ const styles = {
     textStyle:{
         fontSize:20,
         alignItems:'center'
+    },
+    textAlignRight:{
+        fontSize:20,
+        textAlign: 'right',
+        alignSelf: 'stretch'
     }
 };
 

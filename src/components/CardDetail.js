@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View,Image,ScrollView,Linking} from 'react-native';
+import {Text,View,Image,ScrollView,Linking,TouchableOpacity} from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
@@ -9,33 +9,31 @@ const CardDetail=({card})=>{
 
     const{thumbnailStyle,
         imageStyle,
-        headerContentStyle,
+        dataContentStyle,
         thumbnailContainerStyle,
         nameStyle}=styles;
 
     return(
-        <Card>
-            <CardSection>
-                <View style={thumbnailContainerStyle}>
-                    <Image style={thumbnailStyle} source={{uri:pp}}/>
-                </View>
+        <TouchableOpacity onPress={()=>Linking.openURL(pp)}>
+            <Card>
+                <CardSection>
+                    <View style={thumbnailContainerStyle}>
+                        <Image style={thumbnailStyle} source={{uri:pp}}/>
+                    </View>
 
-                <View style={headerContentStyle}>
-                    <Text style={nameStyle}>{name}</Text>
-                    <Text>{jobs}</Text>
-                    <Text>&#9743; {phone}</Text>
-                </View>
-            </CardSection>
-
-            <CardSection>
-                <Button onPress ={()=>Linking.openURL(pp)}/>
-            </CardSection>
-        </Card>
+                    <View style={dataContentStyle}>
+                        <Text style={nameStyle}>{name}</Text>
+                        <Text>{jobs}</Text>
+                        <Text>&#9743; {phone}</Text>
+                    </View>
+                </CardSection>
+            </Card>
+        </TouchableOpacity>
     );
 };
 
 const styles ={
-    headerContentStyle:{
+    dataContentStyle:{
         flexDirection:'column',
         justifyContent:'space-around'
     },
