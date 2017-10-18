@@ -1,29 +1,32 @@
-// import React,{Component} from 'react';
-// import {ScrollView} from 'react-native';
+import React,{Component} from 'react';
+import {ScrollView} from 'react-native';
+import CardDetail from './CardDetail';
 
-// class CardList extends Component{
+import axios from 'axios';
 
-//     state ={cards:[]};
+class CardList extends Component{
+    state ={cards:[]};
 
-//     componentWillMount(){
-//         axios.get('https://rallycoding.herokuapp.com/api/music_cards')
-//         .then(response =>this.setState({cards:response.data}));
-//     }
+    componentWillMount(){
+        var url = "https://us-central1-mmpg-otp-27c9d.cloudfunctions.net/scanQr"
+        axios.post(url, {phone: '628117160077'})
+            .then(response =>this.setState({cards:response.data.result.friends}));
+    }
 
-//     renderCards()
-//     {
-//         return this.state.cards.map(card =>
-//             <CardDetail key={card.title} card={card} />
-//         );
-//     }
+    renderCards()
+    {
+        return this.state.cards.map(card =>
+            <CardDetail key={card.name} card={card} />
+        );
+    }
 
-//     render(){
-//         return(
-//             <ScrollView>
-//                 {this.renderCards()}
-//             </ScrollView>
-//         );
-//     }
-// }
+    render(){
+        return(
+            <ScrollView>
+                {this.renderCards()}
+            </ScrollView>
+        );
+    }
+}
 
-// export default CardList;
+export default CardList;

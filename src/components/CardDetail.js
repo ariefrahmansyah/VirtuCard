@@ -1,36 +1,34 @@
 import React from 'react';
 import {Text, View,Image,ScrollView,Linking} from 'react-native';
 import Card from './Card';
-// import CardSection from './CardSection';
+import CardSection from './CardSection';
 import Button from './Button';
 
 const CardDetail=({card})=>{
-    const{title,artist,thumbnail_image,image,url}=card;
+    const{name,jobs,phone,pp}=card;
 
     const{thumbnailStyle,
         imageStyle,
         headerContentStyle,
-        thumbnailContainerStyle}=styles;
+        thumbnailContainerStyle,
+        nameStyle}=styles;
 
     return(
         <Card>
             <CardSection>
                 <View style={thumbnailContainerStyle}>
-                    <Image style={thumbnailStyle} source={{uri:thumbnail_image}}/>
+                    <Image style={thumbnailStyle} source={{uri:pp}}/>
                 </View>
 
                 <View style={headerContentStyle}>
-                    <Text>{title}</Text>
-                    <Text>{artist}</Text>
+                    <Text style={nameStyle}>{name}</Text>
+                    <Text>{jobs}</Text>
+                    <Text>&#9743; {phone}</Text>
                 </View>
             </CardSection>
 
             <CardSection>
-                <Image style={imageStyle} source={{uri:image}}/>
-            </CardSection>
-
-            <CardSection>
-                <Button onPress ={()=>Linking.openURL(url)}/>
+                <Button onPress ={()=>Linking.openURL(pp)}/>
             </CardSection>
         </Card>
     );
@@ -41,15 +39,16 @@ const styles ={
         flexDirection:'column',
         justifyContent:'space-around'
     },
+    nameStyle:{
+        fontWeight: 'bold'
+    },
     thumbnailStyle:{
         width:50,
-        height:50,
-        marginRight:5
+        height:50
     },
     thumbnailContainerStyle:{
         justifyContent:'center',
         alignItems:'center',
-        marginLeft:10,
         marginRight:10
     },
     imageStyle:{

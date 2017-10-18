@@ -6,7 +6,7 @@ const Button=({onPress})=>{
 
     return(
         <TouchableOpacity onPress={onPress} style ={buttonStyle}>
-            <Text style={textStyle}>Click Me!</Text>
+            <Text style={textStyle}>View Virtual Card</Text>
         </TouchableOpacity>
     );
 };
